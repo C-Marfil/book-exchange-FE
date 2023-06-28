@@ -11,6 +11,7 @@ const PageTitle = () => {
           src="../assets/Group 1title.png"
           alt="find your next read!"
         />
+
         <img
           className="sea-wave"
           src="../assets/Group 5sea.png"

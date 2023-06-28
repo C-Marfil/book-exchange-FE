@@ -1,0 +1,6 @@
+.release {
+    position:absolute;
+    left: 42vw;
+    top: 40vh;
+    z-index: 4;
+}

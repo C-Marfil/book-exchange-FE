@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Book from "./Books";
 import PageTitle from "./PageTitle";
 import "./welcome.css";
+import ReleaseLink from "./components/ReleaseLink";
 
 const Welcome = () => {
   const [error, setError] = useState("");
@@ -26,6 +27,7 @@ const Welcome = () => {
 
   return (
     <div>
+      <ReleaseLink />
       <PageTitle />
       <div className="books">{data && <Book data={data} />}</div>
     </div>
