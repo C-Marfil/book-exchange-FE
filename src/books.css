@@ -1,0 +1,17 @@
+.books {
+    display: flex;
+}
+
+.bubble {
+    width: 100px;
+    height: 100px;
+    background-image: url("../public/assets/Ellipse 7bubble.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 4;
+}
+
+.book-title {
+    margin-top: 34px;
+    text-align: center;
+}

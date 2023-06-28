@@ -1,0 +1,26 @@
+.sea {
+  display: flex;
+}
+
+.title {
+  width: 40vw;
+  margin-left: 30vw;
+  margin-top: 10vh;
+  z-index: 3;
+}
+
+.sun {
+  position: absolute;
+  width: 30vw;
+  margin-left: 35vw;
+  z-index: 1;
+}
+
+.sea-wave {
+  position: absolute;
+  overflow: hidden;
+  margin-left: -50px;
+  margin-top: -90px;
+  width: 100vw;
+  z-index: 2;
+}
