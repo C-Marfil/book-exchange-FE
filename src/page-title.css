@@ -9,6 +9,12 @@
   z-index: 3;
 }
 
+.bigsun {
+    position: absolute;
+    width: 47vw;
+    margin-left: 25vw;
+    z-index: 1;
+}
 
 .sun {
   position: absolute;

@@ -1,0 +1,7 @@
+.form {
+    display: flex;
+    position: absolute;
+    margin-top: 15vh;
+    z-index: 5;
+
+}
