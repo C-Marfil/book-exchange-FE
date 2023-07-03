@@ -1,7 +1,109 @@
 .form {
-    display: flex;
-    position: absolute;
-    margin-top: 15vh;
-    z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin-top: 10vh;
+  z-index: 5;
+}
 
+input[type="text"] {
+  background: transparent;
+  border: none;
+  background-image: url("../../public/assets/Ellipse 12text box small.png");
+  background-repeat: no-repeat;
+  
+  width: 140px;
+  height: 25px;
+}
+
+input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  background: transparent;
+  border: none;
+  background-image: url("../../public/assets/Ellipse 13text box big.png");
+  background-repeat: no-repeat;
+  padding: 10px;
+  width: 276px;
+  height: 130px;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.title {
+  margin-top: 60px;
+  margin-left: 45vw;
+}
+
+.title--container {
+  position: relative;
+}
+
+.title--container::before {
+  content: url("../../public/assets/Group 8title.png");
+  position: absolute;
+  left: 40vw; 
+  top:75px;
+  transform: translateY(-50%); 
+}
+
+.author{
+  margin-top: 10px;
+  margin-left: 45vw;
+}
+
+.author--container::before {
+  content: url("../../public/assets/Group 7author.png");
+  position: absolute;
+  left: 41vw; 
+  top:116px;
+  transform: translateY(-50%); 
+}
+
+.genre{
+  background: transparent;
+  background-image: url("../../public/assets/Ellipse 12text box small.png");
+  background-repeat: no-repeat;
+  width: 145px;
+  height: 30px;
+  border: none;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 45vw;
+}
+
+.genre:focus{
+  border: none;
+  outline: none;
+}
+
+.reason--container::before {
+  content: url("../../public/assets/REASONS WHY ...REASON.png");
+  position: absolute;
+  left: 32vw; 
+  top:210px;
+  transform: translateY(-50%); 
+}
+
+.reason{
+  margin-top: 10px;
+  margin-left: 40vw;
+}
+
+.done {
+  background: url("../../public/assets/Group 9done button.png");
+  margin-left: 37vw;
+  width: 100px;
+  height:100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
 }

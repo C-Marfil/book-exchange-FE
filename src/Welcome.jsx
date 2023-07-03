@@ -5,8 +5,7 @@ import PageTitle from "./PageTitle";
 import "./welcome.css";
 import ReleaseLink from "./components/ReleaseLink";
 
-const Welcome = () => {
-  const [error, setError] = useState("");
+const Welcome = ({ error, setError }) => {
   const [data, setData] = useState("");
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const Welcome = () => {
     <div>
       <ReleaseLink />
       <PageTitle />
-      <div className="books">{data && <Book data={data} />}</div>
+      <div className="books--container">{data && <Book data={data} />}</div>
     </div>
   );
 

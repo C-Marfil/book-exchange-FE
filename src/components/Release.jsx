@@ -21,13 +21,20 @@ const Release = () => {
       console.log("authordata", authorId.data.id);
       AuthorId = authorId.data.id;
     } catch (error) {
-      console.error(error.message, "The author does not exist");
+      try {
+        const res = await axios.post("http://localhost:3000/authors/", {
+          name: authorName,
+        });
+        AuthorId = res.data.id;
+      } catch (err) {
+        console.log(err.message);
+      }
     }
-
     const book = {
       title,
       AuthorId,
       GenreId,
+      reason,
     };
     console.log(book);
 
@@ -43,38 +50,43 @@ const Release = () => {
     <>
       <PageTitle />
       <form onSubmit={(e) => handleSubmit(e)} className="form">
-        <label>
-          Author:
+        <div className="title--container">
           <input
-            type="text"
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-          />
-        </label>
-        <label>
-          Title:
-          <input
+            className="title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
-        <label>
-          Genre:
-          <select value={genre} onChange={(e) => setGenre(e.target.value)}>
-            <option value=" "> Select Genre </option>
-            <option value="1"> Magical Realism </option>
-            <option value="3"> Science Fiction </option>
-          </select>
-        </label>
-        <label>
-          Reason to Release:
+        </div>
+        <div className="author--container">
+          <input
+            className="author"
+            type="text"
+            value={authorName}
+            onChange={(e) => setAuthorName(e.target.value)}
+          />
+        </div>
+
+        <select
+          className="genre"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        >
+          <option value=" "> Select Genre </option>
+          <option value="1"> Magical Realism </option>
+          <option value="3"> Science Fiction </option>
+        </select>
+
+        <div className="reason--container">
           <textarea
+            className="reason"
+            name="reason"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
           />
-        </label>
-        <button type="submit">Done</button>
+        </div>
+
+        <button className="done" type="submit"></button>
       </form>
     </>
   );

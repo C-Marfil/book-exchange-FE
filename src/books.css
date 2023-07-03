@@ -1,12 +1,15 @@
 .books {
     position: absolute;
-    left: 126px;
+    align-items: center;
+    top: 220px;
+    width: 90vw;
+    left: 30px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .bubble {
-    margin-top: 50vh;
-    width: 100px;
+    width: 130px;
     height: 100px;
     background-image: url("../public/assets/Ellipse 7bubble.png");
     background-repeat: no-repeat;
