@@ -3,42 +3,80 @@ import axios from "axios";
 import PageTitle from "../PageTitle";
 import "./release.css";
 
-const Release = ({ setError }) => {
-  const [author, setAuthor] = useState("");
+const Release = () => {
+  const [authorName, setAuthorName] = useState(" ");
+  const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [reason, setReason] = useState("");
 
-  const handleSearch = async (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let AuthorId = "";
+    const GenreId = genre;
+
     try {
-      const model = e.target.id;
-      const options = {
-        authors: "author",
-        books: "book",
-      };
-      const response = await axios.get(
-        `http://localhost:3000/${model}/${options[model]}/`
+      const authorId = await axios.get(
+        `http://localhost:3000/authors/author/${authorName}`
       );
-      setAuthor(response.data);
-      console.log(response.data);
+      console.log("authordata", authorId.data.id);
+      AuthorId = authorId.data.id;
+    } catch (error) {
+      console.error(error.message, "The author does not exist");
+    }
+
+    const book = {
+      title,
+      AuthorId,
+      GenreId,
+    };
+    console.log(book);
+
+    try {
+      const res = await axios.post("http://localhost:3000/books/", book);
+      console.log("res", res);
     } catch (err) {
-      setError(err.message);
+      console.log(err);
     }
   };
 
   return (
-    <div>
-      <form className="form">
-        <input type="text" placeholder="Book Title" />
-        <input
-          type="text"
-          id="authors"
-          placeholder="Author"
-          onChange={() => handleSearch()}
-        />
-        <input type="text" className="text-field" placeholder="Genre" />
-
-        <button type="submit" className="done" aria-label="done" />
-      </form>
+    <>
       <PageTitle />
-    </div>
+      <form onSubmit={(e) => handleSubmit(e)} className="form">
+        <label>
+          Author:
+          <input
+            type="text"
+            value={authorName}
+            onChange={(e) => setAuthorName(e.target.value)}
+          />
+        </label>
+        <label>
+          Title:
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
+        <label>
+          Genre:
+          <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+            <option value=" "> Select Genre </option>
+            <option value="1"> Magical Realism </option>
+            <option value="3"> Science Fiction </option>
+          </select>
+        </label>
+        <label>
+          Reason to Release:
+          <textarea
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+          />
+        </label>
+        <button type="submit">Done</button>
+      </form>
+    </>
   );
 };
 
