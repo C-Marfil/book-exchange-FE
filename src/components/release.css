@@ -84,12 +84,19 @@ textarea:focus {
   outline: none;
 }
 
+.genre--container::before {
+  content: url("../../public/assets/GENREgenre.png");
+  position: absolute;
+  left: 42vw; 
+  top:170px;
+  transform: translateY(-50%); 
+}
+
 .reason--container::before {
   content: url("../../public/assets/REASONS WHY ...REASON.png");
   position: absolute;
   left: 32vw; 
   top:210px;
-  transform: translateY(-50%); 
 }
 
 .reason{

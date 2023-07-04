@@ -1,0 +1,12 @@
+.home-button {
+    background: url("../../public/assets/Group 9done button.png");
+    position: absolute;
+    margin-left: 37vw;
+    width: 100px;
+    height:100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    z-index: 100;
+}

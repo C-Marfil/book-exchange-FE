@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import PageTitle from "../PageTitle";
 import "./release.css";
+import HomeButton from "./HomeButton";
 
 const Release = () => {
   const [authorName, setAuthorName] = useState(" ");
@@ -48,6 +49,7 @@ const Release = () => {
 
   return (
     <>
+      <HomeButton />
       <PageTitle />
       <form onSubmit={(e) => handleSubmit(e)} className="form">
         <div className="title--container">
@@ -67,15 +69,17 @@ const Release = () => {
           />
         </div>
 
-        <select
-          className="genre"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-        >
-          <option value=" "> Select Genre </option>
-          <option value="1"> Magical Realism </option>
-          <option value="3"> Science Fiction </option>
-        </select>
+        <div className="genre--container">
+          <select
+            className="genre"
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          >
+            <option value=" "> Select Genre </option>
+            <option value="10"> Magical Realism </option>
+            <option value="11"> Science Fiction </option>
+          </select>
+        </div>
 
         <div className="reason--container">
           <textarea

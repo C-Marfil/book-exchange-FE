@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import Welcome from "./Welcome";
 import Release from "./components/Release";
+import BookProfile from "./components/BookProfile";
 
 const App = () => {
   const [error, setError] = useState("");
@@ -18,6 +19,7 @@ const App = () => {
           path="/release"
           element={<Release error={error} setError={setError} />}
         />
+        <Route path="/books/:booktitle" element={<BookProfile />} />
       </Routes>
     </div>
   );
