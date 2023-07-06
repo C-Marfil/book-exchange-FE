@@ -27,7 +27,9 @@ const Release = ({ readerID }) => {
         const res = await axios.post("http://localhost:3000/authors/", {
           name: authorName,
         });
-        AuthorId = res.data.id;
+        AuthorId = res.data.entry.id;
+        console.log(res, "Res");
+        console.log(AuthorId, "at try res");
       } catch (err) {
         console.log(err.message);
       }
