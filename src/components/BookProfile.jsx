@@ -7,7 +7,6 @@ const BookProfile = () => {
   const location = useLocation();
   const { title, author, id, reason, genre } = location.state || {};
   console.log(author);
-  
 
   return (
     <>

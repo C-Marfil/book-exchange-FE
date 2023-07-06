@@ -4,6 +4,7 @@ import Book from "./Books";
 import PageTitle from "./PageTitle";
 import "./welcome.css";
 import ReleaseLink from "./components/ReleaseLink";
+import FBLogin from "./components/FBLogin";
 
 const Welcome = ({ error, setError }) => {
   const [data, setData] = useState("");

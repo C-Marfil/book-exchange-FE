@@ -4,7 +4,7 @@ import PageTitle from "../PageTitle";
 import "./release.css";
 import HomeButton from "./HomeButton";
 
-const Release = () => {
+const Release = ({ readerID }) => {
   const [authorName, setAuthorName] = useState(" ");
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
@@ -14,6 +14,7 @@ const Release = () => {
     e.preventDefault();
     let AuthorId = "";
     const GenreId = genre;
+    const ReaderId = readerID;
 
     try {
       const authorId = await axios.get(
@@ -35,6 +36,7 @@ const Release = () => {
       title,
       AuthorId,
       GenreId,
+      ReaderId,
       reason,
     };
     console.log(book);
@@ -90,7 +92,11 @@ const Release = () => {
           />
         </div>
 
-        <button className="done" type="submit"></button>
+        {readerID ? (
+          <button className="done" type="submit" />
+        ) : (
+          <p> Login to continue </p>
+        )}
       </form>
     </>
   );
