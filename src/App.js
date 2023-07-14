@@ -5,6 +5,7 @@ import Welcome from "./Welcome";
 import Release from "./components/Release";
 import BookProfile from "./components/BookProfile";
 import FBLogin from "./components/FBLogin";
+import ReaderProfile from "./components/ReaderProfile";
 
 const App = () => {
   const [error, setError] = useState("");
@@ -27,6 +28,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <ReaderProfile readerInfo={readerInfo} setReaderInfo={setReaderInfo} />
       <FBLogin
         onLogin={(rID) => handleLogin(rID)}
         onLogOut={handleLogOut}

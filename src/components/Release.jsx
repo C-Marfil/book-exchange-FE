@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import PageTitle from "../PageTitle";
 import "./release.css";
@@ -9,6 +10,7 @@ const Release = ({ readerID }) => {
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
   const [reason, setReason] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +48,7 @@ const Release = ({ readerID }) => {
     try {
       const res = await axios.post("http://localhost:3000/books/", book);
       console.log("res", res);
+      navigate(-1);
     } catch (err) {
       console.log(err);
     }
