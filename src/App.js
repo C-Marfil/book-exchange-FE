@@ -6,6 +6,7 @@ import Release from "./components/Release";
 import BookProfile from "./components/BookProfile";
 import FBLogin from "./components/FBLogin";
 import ReaderProfile from "./components/ReaderProfile";
+import ProfilePic from "./components/ProfilePic";
 
 const App = () => {
   const [error, setError] = useState("");
@@ -15,9 +16,9 @@ const App = () => {
   console.log(readerID);
 
   const handleLogin = (response) => {
-    setReaderInfo(response);
+    setReaderInfo(response.data.entry);
     setReaderID(response.data.entry.id);
-    console.log(response);
+    console.log(response, "response readerInfo");
   };
 
   const handleLogOut = () => {
@@ -28,14 +29,23 @@ const App = () => {
 
   return (
     <div className="App">
-      <ReaderProfile readerInfo={readerInfo} setReaderInfo={setReaderInfo} />
       <FBLogin
         onLogin={(rID) => handleLogin(rID)}
         onLogOut={handleLogOut}
         readerID={readerID}
         readerInfo={readerInfo}
       />
+      <ProfilePic readerInfo={readerInfo} />
       <Routes>
+        <Route
+          path="/readers/:readerID"
+          element={
+            <ReaderProfile
+              readerInfo={readerInfo}
+              setReaderInfo={setReaderInfo}
+            />
+          }
+        />
         <Route
           path="/"
           element={
